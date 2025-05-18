@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class playerMovement : MonoBehaviour
 {
-    [SerializeField] private spawnNotes noteSpawner;
+	[SerializeField] private spawnNotes noteSpawner;
 	[SerializeField] private setUpQuestions setUpQuestions;
 	[SerializeField] private playMetronome metronome;
 	[SerializeField] private GameObject beatDisplay;
@@ -22,7 +22,7 @@ public class playerMovement : MonoBehaviour
 	private float score;
 
 	void Start()
-    {
+	{
 		playerPos = noteSpawner.notesToRender[1].GetComponent<noteScript>().GetPlayerPoint().transform.position;
 		transform.position = playerPos;
 		OnPlayerJump += WhenPlayerJumps;
@@ -94,7 +94,7 @@ public class playerMovement : MonoBehaviour
 
 	private void WhenPlayerJumps(object sender, EventArgs e)
 	{
-		
+
 		answerArray = setUpQuestions.ResetQuestion();
 
 	}
@@ -105,7 +105,7 @@ public class playerMovement : MonoBehaviour
 		playerPos = noteSpawner.notesToRender[currentNoteIndex].GetComponent<noteScript>().GetPlayerPoint().transform.position;
 		transform.position = playerPos;
 
-		beatDisplay.GetComponentInChildren<TextMeshProUGUI>().GetComponentInChildren<TextMeshProUGUI>().text = ((int) metronome.beatInBar).ToString();
+		beatDisplay.GetComponentInChildren<TextMeshProUGUI>().GetComponentInChildren<TextMeshProUGUI>().text = ((int)metronome.beatInBar).ToString();
 
 		foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
 		{
@@ -120,7 +120,7 @@ public class playerMovement : MonoBehaviour
 	{
 		return currentNoteIndex;
 	}
-	
+
 	public int GetNextNoteIndex(int noteIndex)
 	{
 		int nextNoteIndex = noteIndex + 1;
@@ -138,10 +138,10 @@ public class playerMovement : MonoBehaviour
 				nextNoteIndex += 1;
 			}
 
-			
+
 		}
 		return nextNoteIndex;
-	
+
 	}
 
 	public float GetNextJumpTime()

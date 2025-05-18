@@ -18,7 +18,7 @@ public class spawnNotes : MonoBehaviour
 	[SerializeField] private GameObject winLoseBanner;
 
 	private string[] noteNames = { "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5" };
-	private float[] durationList = {1f, 2f, 4f};
+	private float[] durationList = { 1f, 2f, 4f };
 	private float beatsInBar = 0f;
 	private float xPos = -7f;
 	private GameObject staffObj;
@@ -60,12 +60,12 @@ public class spawnNotes : MonoBehaviour
 				{
 					Debug.Log(staffObjInfo[i].ToString());
 				}
-				objToRender = (GameObject) staffObjInfo[2];
+				objToRender = (GameObject)staffObjInfo[2];
 
 
 				staffObj = Instantiate(objToRender);
 				position = staffObj.transform.position;
-				position.x = (float) staffObjInfo[1];
+				position.x = (float)staffObjInfo[1];
 				staffObj.transform.position = position;
 				staffObj.GetComponent<noteScript>().HideNoteVisual();
 				staffObj.GetComponent<noteScript>().SetNoteType("barline");
@@ -77,7 +77,7 @@ public class spawnNotes : MonoBehaviour
 				string pitch = noteNames[UnityEngine.Random.Range(0, 11)];
 				float noteHeight = pitchToHeight.GetHeightFromPitch(pitch);
 				float noteDuration = durationList[UnityEngine.Random.Range(0, 3)];
-				
+
 				while ((noteDuration + beatsInBar) > 4)
 				{
 					noteDuration = durationList[UnityEngine.Random.Range(0, 3)];
@@ -105,19 +105,19 @@ public class spawnNotes : MonoBehaviour
 				GameObject staffObj;
 				GameObject objToRender;
 
-				objToRender = (GameObject) staffObjInfo[4];
+				objToRender = (GameObject)staffObjInfo[4];
 
 
 				staffObj = Instantiate(objToRender);
 				position = staffObj.transform.position;
-				position.x = (float) staffObjInfo[1];
-				position.y = (float) staffObjInfo[2];
+				position.x = (float)staffObjInfo[1];
+				position.y = (float)staffObjInfo[2];
 				staffObj.transform.position = position;
 				staffObj.GetComponent<noteScript>().HideNoteVisual();
 				staffObj.GetComponent<noteScript>().SetNoteType(noteDuration);
 				staffObj.GetComponent<noteScript>().SetIndex(index);
 				staffObj.GetComponent<noteScript>().SetPitch(pitch);
-				
+
 
 				notesToRender.Add(staffObj);
 
@@ -128,7 +128,7 @@ public class spawnNotes : MonoBehaviour
 				index++;
 			}
 		}
-		
+
 	}
 
 	private void Update()
@@ -169,7 +169,7 @@ public class spawnNotes : MonoBehaviour
 					}
 
 					notesToRender[i].transform.position = newPos;
-					
+
 
 
 				}
@@ -205,7 +205,4 @@ public class spawnNotes : MonoBehaviour
 		gameRunning = false;
 	}
 }
-
-	
-
 
