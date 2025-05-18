@@ -1594,7 +1594,7 @@ MonoBehaviour:
   setUpQuestions: {fileID: 1114055602}
   metronome: {fileID: 541280294}
   beatDisplay: {fileID: 191731347}
-  pianoSpeaker: {fileID: 0}
+  pianoSpeaker: {fileID: 1989977177}
   playerMoveSpeed: 4
 --- !u!1001 &1515831413
 PrefabInstance:
