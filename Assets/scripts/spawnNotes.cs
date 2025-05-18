@@ -16,6 +16,9 @@ public class spawnNotes : MonoBehaviour
 	[SerializeField] private GameObject trebleClef;
 	[SerializeField] private playerMovement player;
 	[SerializeField] private GameObject winLoseBanner;
+	[SerializeField] private GameObject escapeToRestart;
+	[SerializeField] private GameObject GameOver;
+	[SerializeField] private GameObject restartText;
 
 	private string[] noteNames = { "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5", "G5" };
 	private float[] durationList = { 1f, 2f, 4f };
@@ -188,13 +191,17 @@ public class spawnNotes : MonoBehaviour
 		{
 			if (win == false)
 			{
-				winLoseBanner.GetComponentInChildren<TextMeshProUGUI>().text = "you lose :(";
+				GameOver.GetComponent<TextMeshProUGUI>().text = "GAME OVER";
+				restartText.GetComponent<TextMeshProUGUI>().text = "press escape to restart";
 				winLoseBanner.gameObject.SetActive(true);
+				escapeToRestart.SetActive(true);
 			}
 			else
 			{
-				winLoseBanner.GetComponentInChildren<TextMeshProUGUI>().text = "you win :)";
+				GameOver.GetComponent<TextMeshProUGUI>().text = "GAME OVER";
+				restartText.GetComponent<TextMeshProUGUI>().text = "press escape to restart";
 				winLoseBanner.gameObject.SetActive(true);
+				escapeToRestart.SetActive(true);
 			}
 		}
 	}

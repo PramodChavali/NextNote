@@ -32,16 +32,19 @@ public class playNoteSound : MonoBehaviour
 		if (duration == 1f)
 		{
 			index = GetIndex(pitch);
+			Debug.Log($"Playing: {allQuarterNotes[index]?.name ?? "NULL"}");
 			audioSource.PlayOneShot(allQuarterNotes[index]);
 		}
 		else if (duration == 2f)
 		{
 			index = GetIndex(pitch);
+			Debug.Log($"Playing: {allQuarterNotes[index]?.name ?? "NULL"}");
 			audioSource.PlayOneShot(allHalfNotes[index]);
 		}
 		else if (duration == 4f)
 		{
 			index = GetIndex(pitch);
+			Debug.Log($"Playing: {allQuarterNotes[index]?.name ?? "NULL"}");
 			audioSource.PlayOneShot(allWholeNotes[index]);
 		}
 	}

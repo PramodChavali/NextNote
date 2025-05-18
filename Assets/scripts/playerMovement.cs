@@ -9,6 +9,7 @@ public class playerMovement : MonoBehaviour
 	[SerializeField] private setUpQuestions setUpQuestions;
 	[SerializeField] private playMetronome metronome;
 	[SerializeField] private GameObject beatDisplay;
+	[SerializeField] private playNoteSound pianoSpeaker;
 	private int currentNoteIndex = 1;
 	[SerializeField] private float playerMoveSpeed = 1f;
 	private Vector2 newPlayerPos;
@@ -29,6 +30,7 @@ public class playerMovement : MonoBehaviour
 		OnKeyPress += WhenKeyIsPressed;
 		answerArray = setUpQuestions.ResetQuestion();
 		nextJumpTime = GetNextJumpTime();
+		pianoSpeaker.PlaySoundOfCurrentNote();
 	}
 
 	private void WhenKeyIsPressed(object key, EventArgs e)
@@ -83,6 +85,8 @@ public class playerMovement : MonoBehaviour
 					transform.position = newPlayerPos;
 					//position changed! FIRE THE EVENTTT
 					OnPlayerJump?.Invoke(this, EventArgs.Empty);
+					
+
 				}
 				else
 				{
@@ -94,7 +98,7 @@ public class playerMovement : MonoBehaviour
 
 	private void WhenPlayerJumps(object sender, EventArgs e)
 	{
-
+		pianoSpeaker.PlaySoundOfCurrentNote();
 		answerArray = setUpQuestions.ResetQuestion();
 
 	}
